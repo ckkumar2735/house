@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- <link rel="stylesheet" href="./new.css"> -->
+    <title>Document</title>
+<style>
+body{
+    font-family: sans-serif;
+/*     background-color: darkgrey; */
+}
+
+h1{
+    color: forestgreen;
+    text-align: center;
+}
+.gallery-container{
+    display: flex;
+    padding: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.gallery-container img{
+    width: 300px;
+    height: 300px;
+    border: 5px solid white;
+    transition: 0.5s;
+    filter: grayscale(100%);
+    margin: 24px;
+}
+.gallery-container img:hover{
+    transform: scale(1.1);
+    filter: grayscale(0);
+}
+
+.pop-up-image{
+  position: fixed;
+  top:0;
+  left:0;
+  background: rgba(0,0,0,.8);
+  height: 100%;
+  width: 100%;
+  display: none;
+}
+
+.pop-up-image img{
+  width: 70%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.pop-up-image span{
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 40px;
+  cursor: pointer;
+  color: white;
+}
+
+</style>
+  
+</head>
+<body>
+   
+
+    <head>
+      <link rel="stylesheet" href="image-gallery.css">
+      <script src="image-gallery.js"></script>
+    </head>
+    
+  
+      <h1>Image Gallery</h1>
+      <div class="gallery-container">
+        <img src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYyNzczMjAyNw&ixlib=rb-1.2.1&q=80&w=400"" alt="">
+                <img src=" https://images.unsplash.com/3/doctype-hi-res.jpg?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYyNzczMjAyNw&ixlib=rb-1.2.1&q=80&w=400"" alt="">
+        <img src="https://images.unsplash.com/photo-1502945015378-0e284ca1a5be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYyNzczMjAyNw&ixlib=rb-1.2.1&q=80&w=400" alt="">
+        <img src="https://images.unsplash.com/photo-1511649475669-e288648b2339?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYyNzczMjAyNw&ixlib=rb-1.2.1&q=80&w=400"" alt="">
+                <img src=" https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYyNzczMjAyNw&ixlib=rb-1.2.1&q=80&w=400" alt="">
+        <!-- <img src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYyNzczMjAyNw&ixlib=rb-1.2.1&q=80&w=400" alt="">
+        <img src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYyNzczMjAyNw&ixlib=rb-1.2.1&q=80&w=400" alt=""> -->
+      </div>
+    
+      <div class="pop-up-image">
+        <img src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYyNzczMjAyNw&ixlib=rb-1.2.1&q=80&w=400" ">
+        <span class="close">&times;</span>
+      </div>
+   
+    <script>
+        document.querySelectorAll('.gallery-container img').forEach(image => {
+  image.onclick = () => {
+  document.querySelector('.pop-up-image').style.display = "block";
+    document.querySelector('.pop-up-image img').src = image.src;
+  }
+});
+
+document.querySelector('.pop-up-image span').addEventListener('click', () => {
+  document.querySelector('.pop-up-image').style.display = "none";
+});
+    </script>
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+</body>
+</html>
